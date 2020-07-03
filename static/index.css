@@ -1,0 +1,344 @@
+.main{
+    color: goldenrod;
+    text-align: center;
+    font-size: 7.5em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    margin-top: 5%;
+}
+
+.secondary{
+  color: goldenrod;
+  align-content: center;
+  position: static;
+  text-align: left;
+  font-size: 4em;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 5%;
+  padding-left: 5%;
+}
+
+.tertiary{
+  color: goldenrod;
+  align-content: center;
+  position: static;
+  text-align: left;
+  font-size: 3.5em;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 2%;
+  padding-left: 5%;
+}
+.fourth{
+  color: wheat;
+  align-content: center;
+  position: static;
+  text-align: left;
+  font-size: 2em;
+  font-family: 'Montserrat', sans-serif;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.fifth{
+  color: goldenrod;
+  align-content: center;
+  position: static;
+  text-align: center;
+  font-size: 7em;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 5%;
+  
+  
+}
+
+.logintext{
+  color: beige;
+  position: fixed;
+  right: 2px;
+}
+
+.input{
+  margin-top: 2%;
+}
+
+
+.padding{
+  padding-top: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.label{
+  color: beige;
+  
+}
+
+.field{
+  width: 50%;
+}
+
+.vl {
+  border-left: 6px solid goldenrod;
+  height: 500px;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  margin-top: 17%;
+  top: 0;
+}
+
+.button {
+  background-color: gold; /* Green */
+  border: none;
+  color: black;
+  padding: 10px 13px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: honeydew;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#rightpad{
+  padding-right: 0px;
+}
+
+.button:hover{
+  background-color: ivory;
+  color: black;
+}
+
+#one{
+    color: white;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 5%;
+    font-family: 'Overpass', sans-serif;
+    font-size: 1.5em;
+}
+
+.hometxt{
+  color: white;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 5%;
+    font-family: 'Overpass', sans-serif;
+    font-size: 1.5em;
+}
+
+.one{
+  color: white;
+  margin-left: 5%;
+  padding-right: 5%;
+  column-gap: 40px;
+  font-family: 'Overpass', sans-serif;
+  float: left;
+  background-color: black;
+}
+
+.six{
+  color: white;
+  
+  font-family: 'Overpass', sans-serif;
+  
+  background-color: black;
+}
+.seven{
+  color: white;
+  font-family: 'Overpass', sans-serif;
+  background-color: black;
+}
+
+
+.five{
+  color: white;
+  column-gap: 40px;
+  font-family: 'Overpass', sans-serif;
+  float: left;
+  background-color: black;
+}
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: black;
+  padding: 14px 5%;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.2s;
+}
+.block:hover{
+  transition: 0.5s;
+  background-color: goldenrod;
+  color: black;
+}
+
+.three{
+  color: white;
+  margin-left: 5%;
+  padding-right: 5%;
+  column-gap: 40px;
+  font-family: 'Overpass', sans-serif;
+  float: left;
+  background-color: black;
+}
+
+.two{
+  background-color: black;
+}
+body{
+    background-color: rgb(0, 0, 0);
+}
+.t{
+  color: white;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    padding-right: 20px;
+    
+  }
+  
+  li {
+    float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transform: skew(-21deg);
+    transition: 0.5s;
+  }
+  li a:not(.active){
+      color: white;
+  }
+  li:last-of-type { margin-left: 0px; left: -10px; }
+  li:first-of-type{ margin-right: 0px; right: -10px; }
+  
+  li a:hover:not(.active) {
+    transition: 0.5s;
+    background-color: black; 
+    color: gold;
+  }
+  li a:hover.active{
+    transition: 0.5s;
+    color: black ;
+  }
+  
+  #lib a:hover{
+    transition: 0.5s;
+    color:gold;
+    background-color: black;
+  }
+
+  .active {
+    transition: 0.3;
+    color: black;
+    background-color: gold;
+}
+
+.rskew{
+    transform: skew(+21deg);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25em;
+}
+/* 
+#btnSun{
+  color: black;
+  background-color: gold;
+}
+#btnSun:hover{
+  background-color: goldenrod;
+}
+
+#btnSunBefore{
+  color: black;
+  background-color: gold;
+}
+#btnSunBefore:hover{
+  background-color: goldenrod;
+} */
+
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
+input.star { display: none; }
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #444;
+  transition: all .2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before { color: #F62; }
+
+label.star:hover { transform: rotate(-15deg) scale(1.3); }
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+}
+
+.hvr-sweep-to-right {
+  border-color: gold;
+  color: white;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(255, 230, 0, 0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.hvr-sweep-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: gold;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-sweep-to-right:hover, .hvr-sweep-to-right:focus, .hvr-sweep-to-right:active {
+  color: black;
+}
+.hvr-sweep-to-right:hover:before, .hvr-sweep-to-right:focus:before, .hvr-sweep-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}

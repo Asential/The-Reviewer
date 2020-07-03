@@ -1,0 +1,137 @@
+{% extends "template.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}
+    {{i.title}} - {{i.author}}
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script>
+        
+        $(document).ready(function() {
+        $('#btnSun').click(myFunction);
+        });
+        function myFunction() {
+          $.alert({
+          title: 'Already Reviewed!',
+          content: 'You have already submitted a review for this book!',
+        });
+        }
+  
+    </script>
+{% endblock %}
+
+{% block body %}
+
+<ul class="col-12">
+    <li style="width: 25%;"><a style="text-decoration:none;" href="{{url_for('logout')}}"><div class="rskew">Logout</div></a></li>
+    <li style="width: 25%;"><a style="text-decoration:none;" href="{{url_for('profile')}}"><div class="rskew">{{username}}</div></a></li>
+    <li id="lib" style="width: 25%;"><a class="active" style="text-decoration:none;" href="{{url_for('books')}}"><div class="rskew">Back</div></a></li>
+    <li style="width: 25%;"><a style="text-decoration:none;" href="{{url_for('home')}}"><div class="rskew">Home</div></a></li>
+</ul>
+
+
+<div class="tertiary">{{ i.title }} ({{i.year}}) </div>
+<div class="fourth">Author: {{i.author}} </div><br>
+<div>
+<table class="three">
+    <tr>
+      <td>Rating: </td>
+      <td class="padding">{{rating}}</td>
+    </tr>
+    <tr>
+      <td>Review Count:</td>
+      <td class="padding">{{review_count}} </td>
+    </tr>
+
+    <tr>
+        <td>Rating Count: </td>
+        <td class="padding">{{rating_count}}</td>
+    </tr>
+
+    <tr>
+        <td>ISBN: </td>
+        <td class="padding">{{ i.isbn }}</td>
+    </tr>
+  </table><br>
+  </div>
+  <br><br><br><br>
+  {% for i in review_data %}
+  <div class="col-6" style="float: right; padding: 2%; border: 2px solid gold; box-shadow: 0 0 5px goldenrod; margin-top: 2%; margin-right: 2%; padding-right: 0px; padding-bottom: 0px;">
+    <ul class="two">
+      
+      <div class="row col-12">
+        <div class="seven col-12">
+          {{ i.review }}
+        </div>
+      </div><br>
+        <div class="row col-12">
+         <div class="col-6 seven" style="text-align: left; color: gold; text-shadow: 0 0 2px white;">
+          {% for k in range(i.rating)%}
+            &#9733;
+          {% endfor %}
+        </div> 
+
+        <div id="rightpad" class="col-6 seven" style="text-align: right; padding-right: 0px;">
+          - {{i.name}} 
+        </div>
+      </div>
+      <br>
+      
+    </ul>
+  </div>
+  {% endfor %}
+
+  
+  <div>
+  <form id="form" class="col-6 padding" method="POST">
+    
+    {{ form.hidden_tag() }}
+    <div class="form-group  required"> 
+    
+    <div id="stars" class="stars">
+      <ul id="star" style="padding-right: 0px; text-align: center; background-color: black;">
+        <input id="stars-4" class="star star-5" name="star" type="radio" value="star-4" required>
+        <label for="stars-4" class="star star-5"></label>
+        <input id="stars-3" class="star star-4" name="star" type="radio" value="star-3" required>
+        <label for="stars-3" class="star star-4"></label>
+        <input id="stars-2" class="star star-3" name="star" type="radio" value="star-2" required>
+        <label for="stars-2" class="star star-3"></label>
+        <input id="stars-1" class="star star-2" name="star" type="radio" value="star-1" required>
+        <label for="stars-1" class="star star-2"></label>
+        <input id="stars-0" class="star star-1" name="star" type="radio" value="star-0" required>
+        <label for="stars-0" class="star star-1"></label>
+      </ul>
+      </div>
+    </div>
+
+    <div class="form-group  six" style="padding-bottom: 18px;">
+      <label class="control-label label" for="review">Your views</label><span style="color: gold;"> *</span><br/>
+      <textarea id="review" name="review" style="color: black; max-width : 450px; width: 100%;" rows="5" class="form-control field" minlength="30" maxlength="500" required ></textarea>
+    </div>
+
+    <div style="padding-bottom: 18px;">
+      {% set vars = {'foo': True} %}
+      {% for k in review_data %}  
+        {% if k.name == username %}
+          {% if vars.update({'foo': False}) %} {% endif %}
+        {% endif %}  
+      {% endfor %}
+      
+      {% if vars.foo %}
+        <button id="btnSunBefore" type="submit" class="btn input hvr-sweep-to-right" value="Submit" >Submit</button>
+        </div>
+      </form>
+      {% else %}
+      </form>
+        <button id="btnSun" class="btn input hvr-sweep-to-right">Submit</button>
+      </div>
+      {% endif %}
+    
+  </div>
+
+{% endblock %}

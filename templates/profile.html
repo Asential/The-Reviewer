@@ -1,0 +1,64 @@
+{% extends "template.html" %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block body %}
+
+<ul class="col-12">
+    <li style="width: 25%;"><a style="text-decoration:none;" href="{{url_for('logout')}}"><div class="rskew">Logout</div></a></li>
+    <li style="width: 25%;"><a class="active" style="text-decoration:none;" href="#"><div class="rskew">{{username}}</div></a></li>
+    <li style="width: 25%;"><a style="text-decoration:none;" href="{{url_for('books')}}"><div class="rskew">Books</div></a></li>
+    <li style="width: 25%;"><a style="text-decoration:none;" href="{{url_for('home')}}"><div class="rskew">Home</div></a></li>
+</ul>
+
+<div class="col-12">
+<div class="secondary"> {{username}} </div>
+</div>
+<div class="col-12">
+    <div class="fourth"> Reviews Written By You </div>
+
+    {% if noreview %}
+    <div class="col-6" style="max-width: 90%; margin-left: 5%; margin-top: 2%; padding-right: 0px; padding-bottom: 0px; padding-left: 0;">
+      <a class="tertiary" style="color: wheat; padding-left: 0;">You Have not written any reviews yet!</a>
+     
+    </div>
+    {% else %}
+    {% for i in review_data %}
+    <div class="col-6" style="max-width: 90%; margin-left: 5%; padding: 2%; border: 2px solid gold; box-shadow: 0 0 5px goldenrod; margin-top: 2%; padding-right: 0px; padding-bottom: 0px;">
+      <ul class="two">
+        
+        <div class="row col-12">
+          <div class="seven col-12">
+            {{ i.review }}
+          </div>
+        </div><br>
+          <div class="row col-12">
+           <div class="col-6 seven" style="text-align: left; color: gold; text-shadow: 0 0 2px white;">
+            {% for k in range(i.rating)%}
+            &#9733;
+            {% endfor %}
+          </div> 
+  
+          <div id="rightpad" class="col-6 seven" style="text-align: right; padding-right: 0px;">
+              ISBN: {{i.isbn}} 
+            </div>
+        </div>
+        
+        <br>
+        
+      </ul>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+</div>
+{% endblock %}

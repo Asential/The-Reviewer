@@ -1,0 +1,55 @@
+{% extends "template.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Signup
+{% endblock %}
+
+{% block body %}
+
+<ul class="col-12">
+    <li style="width: 33.33%;"><a class="active" style="text-decoration:none;" href="{{url_for('signup')}}"><div class="rskew">Sign Up</div></a></li>
+    <li style="width: 33.33%;"><a style="text-decoration:none;" href="{{url_for('login')}}"><div class="rskew">Login</div></a></li>
+    <li style="width: 33.33%;"><a style="text-decoration:none;" href="{{url_for('index')}}"><div class="rskew">Home</div></a></li>
+</ul>
+<div class="col-12">
+    <h1 class="secondary">Sign Up</h1>
+</div>
+
+<div class="col-12">
+<form method="POST" class="padding" id="form">
+
+    {{form.hidden_tag()}}
+    <div class="row">
+    <div class="form-group col-6 required" style="max-width: 50%;">
+        <label class="control-label label" for="username">Username</label>
+        <input class="form-control field" id="username" name="username" required="" type="text" value="">
+    </div>
+
+    {% if invalidCredentials %}
+        <div class="col-6" style="color: #f33636; font-size: 1.5em">Please fill the fields properly.</div>
+    {% endif %}
+    </div>
+    
+
+    <div class="form-group  required" style="max-width: 50%;">
+        <label class="control-label label" for="email">E-Mail</label>
+        <input class="form-control field" id="email" name="email" required="" type="text" value="">
+    </div>
+    
+    <div class="form-group  required" style="max-width: 50%;">
+        <label class="control-label label" for="password">Password</label>
+        <input class="form-control field" id="password" name="password" required="" type="password" value="">
+    </div>
+
+    <button class="btn input hvr-sweep-to-right" type="submit">Submit</button>
+</form>
+</div>
+
+<!--<div class="vl"></div>-->
+
+{% endblock %}

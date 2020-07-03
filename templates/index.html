@@ -1,0 +1,49 @@
+{% extends "template.html" %}
+
+{% block head %}    
+    
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    The Reviewer
+{% endblock %}
+
+{% block body %}
+	<ul class="col-12">
+		<li style="width: 33.33%;">
+			<a style="text-decoration:none;" href="{{url_for('signup')}}">
+				<div class="rskew">Sign Up</div>
+			</a>
+		</li>
+		<li style="width: 33.33%;">
+			<a style="text-decoration:none;" href="{{url_for('login')}}">
+				<div class="rskew">Login</div>
+			</a>
+		</li>
+		<li style="width: 33.33%;">
+			<a class="active" style="text-decoration:none;" href="#">
+				<div class="rskew">Home</div>
+			</a>
+		</li>
+  </ul>
+  
+  <h1 class="main">The Reviewer</h1>
+  
+	<div id="one" style="font-size: 1.5em; text-align: center;">
+    Welcome to the Reviewer! Here, you can read reviews of 
+		<a style="color: gold;"> 5000 books </a> and write some reviews yourself!
+	  <div>
+       Using GoodReads API, you can search the list of books by their name, author, ISBN number or the year they were published in.
+     </div>
+  </div>
+  
+	<div class="col-12">
+		<div class="hometxt" style="text-align: center;">
+			<a href="{{url_for('login')}}" style="color: gold; text-decoration:none;"> Sign Up</a> Now and start reviewing! 
+		</div>
+  </div>
+  
+{% endblock %}

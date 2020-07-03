@@ -1,0 +1,16 @@
+{% extends "template.html" %}
+
+{% block head %}    
+    
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+
+			<div class="secondary">Oops, That's a 404 error right there!</div>
+			<div class="fourth">The Book ISBN is either incorrect or not in our database!</div>
+
+{% endblock %}

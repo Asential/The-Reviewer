@@ -1,0 +1,55 @@
+{% extends "template.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap" rel="stylesheet">
+
+{% endblock %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+
+<ul class="col-12">
+    <li style="width: 33.33%;"><a style="text-decoration:none;" href="{{url_for('signup')}}"><div class="rskew">Sign Up</div></a></li>
+    <li style="width: 33.33%;"><a class="active" style="text-decoration:none;" href="{{url_for('login')}}"><div class="rskew">Login</div></a></li>
+    <li style="width: 33.33%;"><a style="text-decoration:none;" href="{{url_for('index')}}"><div class="rskew">Home</div></a></li>
+</ul>
+
+<div class="col-12">
+<h1 class="secondary">Login</h1>
+</div>
+
+<div class="col-12">
+<form method="POST" class="padding" id="form" >
+
+    {{ form.hidden_tag() }}
+    <div class="row">
+    <div class="form-group col-6 required"> 
+        <label class="control-label label" for="username">Username</label>
+        <input class="form-control field" id="username" name="username" required="" type="text" value=""> 
+    </div>
+
+    {% if invalidCredentials %}
+        <div class="col-6" style="color: #f33636; font-size: 1.5em">Invalid Credentials. Please Try Again.</div>
+    {% endif %}
+
+    {% if signedup %}
+    <div class="col-6" style="color: gold; font-size: 1.5em;">Successfully Registered! Log In to continue.</div>
+    {% endif %}
+    </div>
+    <div class="row">
+    <div class="form-group  required col-6">
+        <label class="control-label label" for="password">Password</label>
+        <input class="form-control field" id="password" name="password" required="" type="password" value="">
+    </div>
+    </div>
+    <button class="btn input hvr-sweep-to-right" type="submit">Login</button>
+</form>
+</div>
+
+<!--<div class="vl"></div>-->
+
+{% endblock %}
